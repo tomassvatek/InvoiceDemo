@@ -1,0 +1,51 @@
+﻿@model InvoiceDemo.Models.Viewmodels.InvoiceDetailVm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<style>
+    .invoice-detail {
+        margin: 20px 0 30px 0;
+    }
+
+    .property {
+        margin: 5px 0;
+    }
+
+    .display-name {
+        display: inline-block;
+        font-weight: 600;
+        min-width: 130px;
+    }
+
+    .display-value {
+        display: inline-block
+    }
+</style>
+
+<h2>Detail</h2>
+
+<div class="invoice-detail">
+    <div class="property">
+        <div class="display-name">@Html.DisplayNameFor(model => model.InvoiceDate)</div>
+        <div class="display-value">@Html.DisplayFor(model => model.InvoiceDate)</div>
+    </div>
+    
+    <div class="property">
+        <div class="display-name">@Html.DisplayNameFor(model => model.DueDate)</div>
+        <div class="display-value">@Html.DisplayFor(model => model.DueDate)</div>
+    </div>
+
+    <div class="property">
+        <div class="display-name">@Html.DisplayNameFor(model => model.Paid)</div>
+        <div class="display-value">@Html.DisplayFor(model => model.Paid)</div>
+    </div>
+</div>
+
+@Html.Partial("DetailListItems", Model.InvoiceItem)
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

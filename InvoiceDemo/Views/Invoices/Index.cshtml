@@ -1,0 +1,50 @@
+﻿@model List<InvoiceDemo.Models.Viewmodels.InvoiceDetailVm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Invoices</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model[0].InvoiceDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].DueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].Paid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.InvoiceDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
